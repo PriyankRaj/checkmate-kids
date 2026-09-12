@@ -1,0 +1,45 @@
+{
+  "id": "check",
+  "title": "Check!",
+  "summary": "When the king is under attack, you must respond right away.",
+  "order": 9,
+  "steps": [
+    {
+      "type": "info",
+      "text": "When a piece attacks the king, we say the king is in CHECK. You must get out of check right away — by moving the king, blocking the attack, or capturing the attacking piece.",
+      "fen": "k3r3/8/8/8/8/8/8/4K3 w - - 0 1",
+      "shapes": [{ "kind": "arrow", "orig": "e8", "dest": "e1", "color": "#E53935" }]
+    },
+    {
+      "type": "move",
+      "fen": "k3r3/8/8/8/8/8/8/4K3 w - - 0 1",
+      "expectedUci": ["e1d1", "e1d2", "e1f1", "e1f2"],
+      "prompt": "Your king is in check from the rook! Move him to safety, off the e-file.",
+      "successText": "Phew — safe! You escaped the check.",
+      "retryText": "The rook attacks the whole e-file — step off it to escape.",
+      "hints": [{ "kind": "arrow", "orig": "e1", "dest": "d1", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "k3r3/8/8/8/8/2B5/8/4K3 w - - 0 1",
+      "expectedUci": ["c3e5"],
+      "prompt": "You can also get out of check by BLOCKING the attack! Move your bishop to e5 to block the rook's path.",
+      "successText": "Great blocking move! The rook can't reach your king now.",
+      "retryText": "Put your bishop right in the rook's path — try e5.",
+      "hints": [{ "kind": "arrow", "orig": "c3", "dest": "e5", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "k7/8/4Q3/8/8/8/4r3/4K3 w - - 0 1",
+      "expectedUci": ["e6e2"],
+      "prompt": "This time, you can capture the checking piece! Slide your queen down to capture the rook on e2.",
+      "successText": "Captured! No more check.",
+      "retryText": "Your queen can reach the checking rook — try capturing it on e2.",
+      "hints": [{ "kind": "arrow", "orig": "e6", "dest": "e2", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "So remember the three ways to escape check: move your king to safety, block the attack with another piece, or capture the attacking piece. Next: what happens when NONE of these are possible? That's called checkmate!"
+    }
+  ]
+}

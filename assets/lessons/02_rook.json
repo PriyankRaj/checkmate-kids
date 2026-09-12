@@ -1,0 +1,59 @@
+{
+  "id": "rook",
+  "title": "The Rook",
+  "summary": "Straight lines, any distance — meet the powerful rook.",
+  "order": 2,
+  "steps": [
+    {
+      "type": "info",
+      "text": "The ROOK moves in straight lines — up, down, left, or right — as far as it wants, but it can't jump over other pieces.",
+      "fen": "7k/8/8/8/3R4/8/8/K7 w - - 0 1",
+      "shapes": [
+        { "kind": "arrow", "orig": "d4", "dest": "d8", "color": "#4CAF50" },
+        { "kind": "arrow", "orig": "d4", "dest": "d1", "color": "#4CAF50" },
+        { "kind": "arrow", "orig": "d4", "dest": "a4", "color": "#4CAF50" },
+        { "kind": "arrow", "orig": "d4", "dest": "h4", "color": "#4CAF50" }
+      ]
+    },
+    {
+      "type": "move",
+      "fen": "7k/8/8/8/3R4/8/8/K7 w - - 0 1",
+      "expectedUci": ["d4d8"],
+      "prompt": "Move the rook straight up to d8.",
+      "successText": "Zoom! You moved the rook the whole way up the file!",
+      "retryText": "Not quite — remember, the rook only moves in straight lines. Try again!",
+      "hints": [{ "kind": "arrow", "orig": "d4", "dest": "d8", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "7k/8/8/8/3R4/8/8/K7 w - - 0 1",
+      "expectedUci": ["d4h4"],
+      "prompt": "Now slide the rook all the way to the right, to h4.",
+      "successText": "You moved along the rank this time!",
+      "retryText": "Try again — slide sideways along the rank to h4.",
+      "hints": [{ "kind": "arrow", "orig": "d4", "dest": "h4", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "7k/3p4/8/8/3R4/8/8/K7 w - - 0 1",
+      "expectedUci": ["d4d7"],
+      "prompt": "There's a pawn in the way on d7! Capture it by moving your rook there.",
+      "successText": "Great capture! You gobbled up the pawn.",
+      "retryText": "The pawn is on d7 — slide your rook up the file to capture it.",
+      "hints": [{ "kind": "arrow", "orig": "d4", "dest": "d7", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "6k1/8/8/8/R3p3/8/8/6K1 w - - 0 1",
+      "expectedUci": ["a4e4"],
+      "prompt": "Slide the rook along the rank and capture the pawn on e4.",
+      "successText": "Nice! Rooks are just as strong along ranks.",
+      "retryText": "The pawn is on e4 — slide sideways to capture it.",
+      "hints": [{ "kind": "arrow", "orig": "a4", "dest": "e4", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "Rooks are strong pieces — they control whole ranks and files! Next, let's learn the bishop."
+    }
+  ]
+}

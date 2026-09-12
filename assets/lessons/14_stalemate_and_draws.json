@@ -1,0 +1,31 @@
+{
+  "id": "stalemate-and-draws",
+  "title": "Stalemate & Draws",
+  "summary": "Sometimes nobody wins — learn how games end in a draw.",
+  "order": 14,
+  "steps": [
+    {
+      "type": "info",
+      "text": "Sometimes a game ends in a DRAW — nobody wins! One way this happens is STALEMATE: the player to move has NO legal moves at all, but their king is NOT in check. Here, it's Black's turn, but the king on a8 has nowhere safe to go — a7, b7, and b8 are all watched by White's queen and king. Since Black isn't in check, this is a stalemate, not a checkmate!",
+      "fen": "k7/8/8/8/8/KQ6/8/8 b - - 0 1",
+      "shapes": [
+        { "kind": "circle", "orig": "a7", "color": "#FF7043" },
+        { "kind": "circle", "orig": "b7", "color": "#FF7043" },
+        { "kind": "circle", "orig": "b8", "color": "#FF7043" }
+      ]
+    },
+    {
+      "type": "info",
+      "text": "In stalemate, the game is a DRAW even though one side has way more pieces! That's why you have to be careful when you're way ahead — don't accidentally trap the enemy king with no moves and no check."
+    },
+    {
+      "type": "info",
+      "text": "There are other ways games can end in a draw too: if there isn't enough material left for either side to checkmate (like just two lone kings), if the exact same position happens three times, or if 50 moves pass with no pawn move or capture.",
+      "fen": "7k/8/8/8/8/8/8/7K w - - 0 1"
+    },
+    {
+      "type": "info",
+      "text": "Now that you know the basics, let's learn your first CHESS TACTIC — a clever trick called the fork!"
+    }
+  ]
+}

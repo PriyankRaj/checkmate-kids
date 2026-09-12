@@ -1,0 +1,47 @@
+{
+  "id": "castling",
+  "title": "Castling",
+  "summary": "A special move: the king and rook move together.",
+  "order": 11,
+  "steps": [
+    {
+      "type": "info",
+      "text": "CASTLING is a special move where the king and rook move together! It's the only time you move two pieces in one turn. To castle KINGSIDE, the king hops two squares toward the rook, and the rook lands right beside him.",
+      "fen": "4k3/8/8/8/8/8/8/4K2R w K - 0 1",
+      "shapes": [
+        { "kind": "arrow", "orig": "e1", "dest": "g1", "color": "#4CAF50" },
+        { "kind": "arrow", "orig": "h1", "dest": "f1", "color": "#FF7043" }
+      ]
+    },
+    {
+      "type": "move",
+      "fen": "4k3/8/8/8/8/8/8/4K2R w K - 0 1",
+      "expectedUci": ["e1g1", "e1h1"],
+      "prompt": "Castle kingside! Move your king two squares toward the rook on h1.",
+      "successText": "You castled! King and rook teamed up.",
+      "retryText": "Move the king two squares toward the h1 rook to castle.",
+      "hints": [{ "kind": "arrow", "orig": "e1", "dest": "g1", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "You can also castle QUEENSIDE, toward the rook on the other side — the king still only moves two squares."
+    },
+    {
+      "type": "move",
+      "fen": "4k3/8/8/8/8/8/8/R3K3 w Q - 0 1",
+      "expectedUci": ["e1c1", "e1a1"],
+      "prompt": "Now try castling queenside — move the king two squares toward the rook on a1.",
+      "successText": "Queenside castle — nicely done!",
+      "retryText": "Move the king two squares toward the a1 rook to castle.",
+      "hints": [{ "kind": "arrow", "orig": "e1", "dest": "c1", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "Castling has rules: the king and rook must not have moved yet, there must be no pieces between them, and the king can't castle while in check or move through or into an attacked square."
+    },
+    {
+      "type": "info",
+      "text": "Next: a sneaky pawn move called en passant!"
+    }
+  ]
+}

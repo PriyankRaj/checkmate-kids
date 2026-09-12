@@ -1,0 +1,49 @@
+{
+  "id": "pawn",
+  "title": "The Pawn",
+  "summary": "Small but mighty — meet the pawn.",
+  "order": 7,
+  "steps": [
+    {
+      "type": "info",
+      "text": "PAWNS move straight forward — but only forward, never backward! From their starting square, they can move one OR two squares.",
+      "fen": "k7/8/8/8/8/8/4P3/K7 w - - 0 1",
+      "shapes": [{ "kind": "arrow", "orig": "e2", "dest": "e4", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "k7/8/8/8/8/8/4P3/K7 w - - 0 1",
+      "expectedUci": ["e2e4"],
+      "prompt": "It's the pawn's first move — slide it two squares forward to e4!",
+      "successText": "Whoosh — the two-square jump!",
+      "retryText": "This pawn hasn't moved yet, so it can go one OR two squares. Try e4.",
+      "hints": [{ "kind": "arrow", "orig": "e2", "dest": "e4", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "k7/8/8/8/4P3/8/8/K7 w - - 0 1",
+      "expectedUci": ["e4e5"],
+      "prompt": "Now the pawn has already moved once, so it can only go one square at a time. Push it to e5.",
+      "successText": "One square at a time now — well done!",
+      "retryText": "This pawn already moved, so only one square is allowed. Try e5.",
+      "hints": [{ "kind": "arrow", "orig": "e4", "dest": "e5", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "k7/8/8/3p4/4P3/8/8/K7 w - - 0 1",
+      "expectedUci": ["e4d5"],
+      "prompt": "Pawns capture diagonally, not straight ahead! Capture the pawn on d5.",
+      "successText": "Diagonal capture — nicely done!",
+      "retryText": "Pawns can only capture diagonally forward. Try capturing on d5.",
+      "hints": [{ "kind": "arrow", "orig": "e4", "dest": "d5", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "One more thing about pawns: if a pawn reaches the very last rank, it gets promoted into a new piece — usually a queen! We'll practice that in its own lesson soon."
+    },
+    {
+      "type": "info",
+      "text": "You've now met every piece! Time to practice capturing."
+    }
+  ]
+}

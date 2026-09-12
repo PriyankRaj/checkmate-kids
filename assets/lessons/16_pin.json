@@ -1,0 +1,37 @@
+{
+  "id": "pin",
+  "title": "Your First Tactic: The Pin",
+  "summary": "Trap an enemy piece so it can't move without exposing something bigger.",
+  "order": 16,
+  "steps": [
+    {
+      "type": "info",
+      "text": "A PIN happens when a piece can't move without exposing a more valuable piece behind it — often the king! Here, the black knight on e6 is PINNED: if it moves off the diagonal, the bishop would capture the king. So the knight is stuck.",
+      "fen": "6k1/8/4n3/8/2B5/8/8/7K w - - 0 1",
+      "shapes": [{ "kind": "arrow", "orig": "c4", "dest": "g8", "color": "#E53935" }]
+    },
+    {
+      "type": "info",
+      "text": "Because the knight can't move, it's a great target! Any piece that attacks it can capture it for free, since the knight has no safe way to escape.",
+      "fen": "6k1/8/4n3/8/2B5/8/8/7K w - - 0 1",
+      "shapes": [{ "kind": "circle", "orig": "e6", "color": "#FF7043" }]
+    },
+    {
+      "type": "move",
+      "fen": "6k1/3Q4/4n3/8/2B5/8/8/7K w - - 0 1",
+      "expectedUci": ["d7e6"],
+      "prompt": "The knight is pinned and can't escape — swoop in with your queen and capture it!",
+      "successText": "Free knight! Pins are a great way to win material.",
+      "retryText": "The knight can't move — capture it with your queen.",
+      "hints": [{ "kind": "arrow", "orig": "d7", "dest": "e6", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "Look out for pins in your own games too — if one of YOUR pieces is pinned, be careful not to move it and expose your king!"
+    },
+    {
+      "type": "info",
+      "text": "You've learned two great tactics: forks and pins! Now let's put it all together and learn some classic ways to deliver checkmate."
+    }
+  ]
+}

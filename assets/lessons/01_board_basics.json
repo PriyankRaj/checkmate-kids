@@ -1,0 +1,36 @@
+{
+  "id": "board-basics",
+  "title": "The Chessboard",
+  "summary": "Learn your way around the board before meeting the pieces.",
+  "order": 1,
+  "steps": [
+    {
+      "type": "info",
+      "text": "Welcome! Chess is played on a board with 64 squares. Let's learn our way around before we meet the pieces!",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+    },
+    {
+      "type": "info",
+      "text": "The 8 up-and-down columns are called FILES. They're labeled a to h, left to right from White's side.",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "shapes": [{ "kind": "arrow", "orig": "a1", "dest": "a8", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "The 8 side-to-side rows are called RANKS. They're numbered 1 to 8, starting closest to White.",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "shapes": [{ "kind": "arrow", "orig": "a1", "dest": "h1", "color": "#FF7043" }]
+    },
+    {
+      "type": "info",
+      "text": "Every square has its own name: its file letter plus its rank number. The circled square is called e4.",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "shapes": [{ "kind": "circle", "orig": "e4", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "White's pieces start on ranks 1 and 2. Black's pieces start on ranks 7 and 8. Ready to meet the pieces?",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "king",
+  "title": "The King",
+  "summary": "Slow but all-important — meet the king.",
+  "order": 6,
+  "steps": [
+    {
+      "type": "info",
+      "text": "The KING moves one square in any direction — up, down, sideways, or diagonally. He's not very fast, but he's the most important piece: if he's ever trapped with no escape, the game ends!",
+      "fen": "6k1/8/8/8/3K4/8/8/8 w - - 0 1",
+      "shapes": [
+        { "kind": "arrow", "orig": "d4", "dest": "d5", "color": "#4CAF50" },
+        { "kind": "arrow", "orig": "d4", "dest": "e4", "color": "#4CAF50" },
+        { "kind": "arrow", "orig": "d4", "dest": "d3", "color": "#4CAF50" },
+        { "kind": "arrow", "orig": "d4", "dest": "c4", "color": "#4CAF50" }
+      ]
+    },
+    {
+      "type": "move",
+      "fen": "6k1/8/8/8/3K4/8/8/8 w - - 0 1",
+      "expectedUci": ["d4e5"],
+      "prompt": "Move the king one square diagonally, to e5.",
+      "successText": "One little step — perfect!",
+      "retryText": "Kings only move one square at a time. Try e5.",
+      "hints": [{ "kind": "arrow", "orig": "d4", "dest": "e5", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "6k1/8/8/8/3K4/8/8/8 w - - 0 1",
+      "expectedUci": ["d4d3"],
+      "prompt": "Move the king one square down, to d3.",
+      "successText": "Nice and steady!",
+      "retryText": "Kings only move one square at a time. Try d3.",
+      "hints": [{ "kind": "arrow", "orig": "d4", "dest": "d3", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "7k/8/8/3p4/3K4/8/8/8 w - - 0 1",
+      "expectedUci": ["d4d5"],
+      "prompt": "There's a pawn right in front of you — capture it!",
+      "successText": "The king captured the pawn safely!",
+      "retryText": "The pawn on d5 is one square away — capture it.",
+      "hints": [{ "kind": "arrow", "orig": "d4", "dest": "d5", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "Careful — the king can NEVER move into a square attacked by an enemy piece. We'll learn all about keeping the king safe (that's called 'check') in a later lesson."
+    },
+    {
+      "type": "info",
+      "text": "For now, just remember: he moves one square, in any direction. Next up: pawns — the small but mighty foot soldiers!"
+    }
+  ]
+}

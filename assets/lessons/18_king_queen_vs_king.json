@@ -1,0 +1,40 @@
+{
+  "id": "king-queen-vs-king",
+  "title": "Basic Checkmate Patterns: King & Queen vs King",
+  "summary": "Team up your king and queen to trap a lone king.",
+  "order": 18,
+  "steps": [
+    {
+      "type": "info",
+      "text": "Let's learn a basic checkmate pattern: KING and QUEEN versus a lone KING. The queen and king work together to trap the enemy king against the edge of the board, then deliver checkmate!",
+      "fen": "k7/2K5/Q7/8/8/8/8/8 b - - 0 1"
+    },
+    {
+      "type": "info",
+      "text": "Notice how the White king on c7 supports the queen — without the king's help, the queen alone often can't checkmate! Keep your king close by as you close in.",
+      "fen": "k7/2K5/Q7/8/8/8/8/8 b - - 0 1"
+    },
+    {
+      "type": "move",
+      "fen": "k7/2K5/7Q/8/8/8/8/8 w - - 0 1",
+      "expectedUci": ["h6a6"],
+      "prompt": "Slide your queen all the way across to deliver checkmate!",
+      "successText": "Checkmate! King and queen teamwork wins the game.",
+      "retryText": "Your king already covers b8 and b7 — slide the queen onto the a-file to finish the job.",
+      "hints": [{ "kind": "arrow", "orig": "h6", "dest": "a6", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "7k/5K2/Q7/8/8/8/8/8 w - - 0 1",
+      "expectedUci": ["a6h6"],
+      "prompt": "Same idea, mirrored! Slide the queen across to checkmate the king in the corner.",
+      "successText": "Another checkmate — you've mastered the pattern!",
+      "retryText": "Your king already covers g8 and g7 — slide the queen onto the h-file to finish the job.",
+      "hints": [{ "kind": "arrow", "orig": "a6", "dest": "h6", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "Great work! You've learned the basics of king and queen checkmates. Keep practicing, and you'll be spotting checkmates everywhere. You've completed the beginner chess course — congratulations, future champion!"
+    }
+  ]
+}

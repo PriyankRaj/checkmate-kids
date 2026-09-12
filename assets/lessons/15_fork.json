@@ -1,0 +1,43 @@
+{
+  "id": "fork",
+  "title": "Your First Tactic: The Fork",
+  "summary": "Attack two enemy pieces at once and win material.",
+  "order": 15,
+  "steps": [
+    {
+      "type": "info",
+      "text": "A FORK is when one of your pieces attacks TWO enemy pieces at the same time! The enemy can only save one of them — so you win the other. Here, the White knight on d6 attacks both the king on e8 AND the queen on c8 at once!",
+      "fen": "2q1k3/8/3N4/8/8/8/8/7K b - - 0 1",
+      "shapes": [
+        { "kind": "arrow", "orig": "d6", "dest": "c8", "color": "#4CAF50" },
+        { "kind": "arrow", "orig": "d6", "dest": "e8", "color": "#E53935" }
+      ]
+    },
+    {
+      "type": "move",
+      "fen": "2q1k3/8/8/5N2/8/8/8/7K w - - 0 1",
+      "expectedUci": ["f5d6"],
+      "prompt": "Find the knight move that attacks BOTH the king and the queen at once — that's a FORK!",
+      "successText": "Fork! Now Black can only save one piece — you'll win the queen!",
+      "retryText": "Look for a knight hop that hits both the king and the queen.",
+      "hints": [{ "kind": "arrow", "orig": "f5", "dest": "d6", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "After the fork, Black must move the king to escape check — but that means the queen gets left behind! Next turn, you capture her for free."
+    },
+    {
+      "type": "move",
+      "fen": "7k/8/1n1b4/8/2P5/8/8/7K w - - 0 1",
+      "expectedUci": ["c4c5"],
+      "prompt": "Even a PAWN can fork! Push it forward to attack both the knight and the bishop at once.",
+      "successText": "Pawn fork! Black can't save both pieces.",
+      "retryText": "Push the pawn one square forward to attack both pieces diagonally.",
+      "hints": [{ "kind": "arrow", "orig": "c4", "dest": "c5", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "Forks are one of the best tricks in chess — always look for a square where your piece attacks two enemy pieces at once! Next: another sneaky tactic called the pin."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "back-rank-mate",
+  "title": "Basic Checkmate Patterns: Back-Rank Mate",
+  "summary": "A classic pattern: trap the king on its own back rank.",
+  "order": 17,
+  "steps": [
+    {
+      "type": "info",
+      "text": "The BACK-RANK MATE is a classic pattern: if a king is stuck on its home rank with its own pawns blocking every escape square, a rook or queen can swoop down the open file and checkmate it! Look how the pawns on f7, g7, and h7 actually trap their own king here.",
+      "fen": "R5k1/5ppp/8/8/8/8/8/4K3 b - - 0 1"
+    },
+    {
+      "type": "move",
+      "fen": "2k5/1ppp4/8/8/8/8/8/4K2R w - - 0 1",
+      "expectedUci": ["h1h8"],
+      "prompt": "Find the move that traps Black's king with a back-rank checkmate!",
+      "successText": "Checkmate! The rook owns the whole back rank.",
+      "retryText": "Slide your rook all the way up the open file to the back rank.",
+      "hints": [{ "kind": "arrow", "orig": "h1", "dest": "h8", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "5k2/4ppp1/8/8/8/8/8/4K2Q w - - 0 1",
+      "expectedUci": ["h1h8"],
+      "prompt": "Queens can deliver back-rank mate too! Slide her all the way to h8.",
+      "successText": "Checkmate — queens are just as deadly on the back rank!",
+      "retryText": "Slide your queen all the way up the open file to the back rank.",
+      "hints": [{ "kind": "arrow", "orig": "h1", "dest": "h8", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "The defense against back-rank mate is simple: always leave your king a little breathing room — like moving a pawn on the g-file or h-file — so he has an escape square if needed."
+    },
+    {
+      "type": "info",
+      "text": "Next: let's learn how to checkmate with a king and queen against a lone king."
+    }
+  ]
+}

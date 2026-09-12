@@ -1,0 +1,40 @@
+{
+  "id": "en-passant",
+  "title": "En Passant",
+  "summary": "A sneaky special pawn capture.",
+  "order": 12,
+  "steps": [
+    {
+      "type": "info",
+      "text": "EN PASSANT is French for 'in passing' — a special pawn capture! If an enemy pawn zooms past your pawn with a two-square move, you can capture it as if it had only moved one square. But you must do it right away, on your very next move!",
+      "fen": "k7/8/8/3pP3/8/8/8/K7 w - d6 0 1",
+      "shapes": [{ "kind": "arrow", "orig": "e5", "dest": "d6", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "k7/8/8/3pP3/8/8/8/K7 w - d6 0 1",
+      "expectedUci": ["e5d6"],
+      "prompt": "Black's pawn just zoomed past yours! Capture it en passant — move your pawn to d6.",
+      "successText": "En passant! You captured a pawn that wasn't even on that square!",
+      "retryText": "Capture 'in passing' by moving your pawn diagonally to d6.",
+      "hints": [{ "kind": "arrow", "orig": "e5", "dest": "d6", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "k7/8/8/4Pp2/8/8/8/K7 w - f6 0 1",
+      "expectedUci": ["e5f6"],
+      "prompt": "Try it again! Capture the pawn that just rushed past on the other side — go to f6.",
+      "successText": "Another en passant capture — you're getting the hang of it!",
+      "retryText": "Capture 'in passing' by moving your pawn diagonally to f6.",
+      "hints": [{ "kind": "arrow", "orig": "e5", "dest": "f6", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "Remember: you can only capture en passant on the very next move — if you wait, the chance is gone forever!"
+    },
+    {
+      "type": "info",
+      "text": "Next: what happens when a pawn makes it all the way to the other end of the board?"
+    }
+  ]
+}

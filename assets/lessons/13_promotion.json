@@ -1,0 +1,42 @@
+{
+  "id": "promotion",
+  "title": "Pawn Promotion",
+  "summary": "Reach the far end of the board and transform your pawn!",
+  "order": 13,
+  "steps": [
+    {
+      "type": "info",
+      "text": "When a pawn reaches the very last rank (rank 8 for White, rank 1 for Black), something magical happens — it PROMOTES! It transforms into any piece you want, except a king — almost always a queen, since she's the strongest.",
+      "fen": "k7/4P3/8/8/8/8/8/K7 w - - 0 1",
+      "shapes": [{ "kind": "arrow", "orig": "e7", "dest": "e8", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "Black's pawns promote too — but on the opposite end, rank 1!",
+      "fen": "k7/8/8/8/8/8/3p4/K7 b - - 0 1",
+      "shapes": [{ "kind": "arrow", "orig": "d2", "dest": "d1", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "k7/4P3/8/8/8/8/8/K7 w - - 0 1",
+      "expectedUci": ["e7e8q"],
+      "prompt": "Push your pawn all the way to e8 to promote it into a queen!",
+      "successText": "New queen! Pawns can become the most powerful piece on the board.",
+      "retryText": "Push the pawn forward to the last rank, e8, to promote it.",
+      "hints": [{ "kind": "arrow", "orig": "e7", "dest": "e8", "color": "#4CAF50" }]
+    },
+    {
+      "type": "move",
+      "fen": "k3r3/3P4/8/8/8/8/8/K7 w - - 0 1",
+      "expectedUci": ["d7e8q"],
+      "prompt": "You can promote AND capture at the same time! Capture the rook on e8 and turn your pawn into a queen.",
+      "successText": "Double win — captured a rook AND got a new queen!",
+      "retryText": "Capture the rook on e8 as your pawn promotes.",
+      "hints": [{ "kind": "arrow", "orig": "d7", "dest": "e8", "color": "#4CAF50" }]
+    },
+    {
+      "type": "info",
+      "text": "You don't have to promote to a queen — you could choose a rook, bishop, or knight instead, though a queen is almost always best. Next: let's learn about draws — when nobody wins!"
+    }
+  ]
+}
