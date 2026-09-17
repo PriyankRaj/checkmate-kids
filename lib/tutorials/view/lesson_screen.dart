@@ -97,15 +97,19 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
     );
   }
 
-  void _ensureController(int stepIndex, MoveStep step) {
+  ChessboardController _ensureController(int stepIndex, MoveStep step) {
     final controller = _boardController;
     if (controller == null) {
-      _boardController = ChessboardController(game: _gameDataFor(step));
+      final created = ChessboardController(game: _gameDataFor(step));
+      _boardController = created;
       _controllerStepIndex = stepIndex;
-    } else if (_controllerStepIndex != stepIndex) {
+      return created;
+    }
+    if (_controllerStepIndex != stepIndex) {
       controller.updatePosition(_gameDataFor(step), animate: true);
       _controllerStepIndex = stepIndex;
     }
+    return controller;
   }
 
   void _handleMove(MoveStep step, Move move) {
@@ -183,7 +187,6 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
                 boardTheme: boardTheme,
                 ensureController: () =>
                     _ensureController(state.stepIndex, step),
-                boardController: _boardController,
                 onMove: (move, {viaDragAndDrop}) {
                   ref.read(gameFeedbackProvider).move();
                   _handleMove(step, move);
@@ -266,7 +269,6 @@ class _MoveStepView extends StatelessWidget {
     required this.state,
     required this.boardTheme,
     required this.ensureController,
-    required this.boardController,
     required this.onMove,
     required this.onHint,
   });
@@ -274,18 +276,18 @@ class _MoveStepView extends StatelessWidget {
   final MoveStep step;
   final LessonSessionState state;
   final BoardTheme boardTheme;
-  final VoidCallback ensureController;
-  final ChessboardController? boardController;
+  final ChessboardController Function() ensureController;
   final void Function(Move move, {bool? viaDragAndDrop}) onMove;
   final VoidCallback onHint;
 
   @override
   Widget build(BuildContext context) {
-    // Side-effect kept minimal and idempotent: creates the board controller
-    // on first build, or repoints it at the new step's position when the
-    // step changes. Mirrors GameScreen's controller lifecycle.
-    ensureController();
-    final controller = boardController!;
+    // Idempotent: creates the board controller on first build, or repoints
+    // it at the new step's position when the step changes. Mirrors
+    // GameScreen's controller lifecycle. Returning the controller (rather
+    // than reading a separately-passed field) avoids using a stale copy
+    // from before this call created it.
+    final controller = ensureController();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
