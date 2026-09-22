@@ -38,6 +38,16 @@ Pod::Spec.new do |s|
       :name => 'Download small nnue',
       :script => "cd \"${PODS_TARGET_SRCROOT}/Stockfish/src\" && [ -e 'nn-37f18f62d772.nnue' ] || curl --location --remote-name 'https://tests.stockfishchess.org/api/nn/nn-37f18f62d772.nnue'"
     },
+    {
+      :execution_position => :before_compile,
+      :name => 'Copy nnue next to network.cpp for incbin',
+      # incbin's `.incbin` assembler directive doesn't reliably honor the -I
+      # search path under Xcode's build system, but it does resolve paths
+      # relative to the directory of the .cpp being compiled (nnue/). Copy
+      # both embedded network files there so the plain filename in
+      # evaluate.h resolves regardless of which lookup clang uses.
+      :script => "cp \"${PODS_TARGET_SRCROOT}/Stockfish/src/nn-c288c895ea92.nnue\" \"${PODS_TARGET_SRCROOT}/Stockfish/src/nnue/nn-c288c895ea92.nnue\" && cp \"${PODS_TARGET_SRCROOT}/Stockfish/src/nn-37f18f62d772.nnue\" \"${PODS_TARGET_SRCROOT}/Stockfish/src/nnue/nn-37f18f62d772.nnue\""
+    },
   ]
   s.xcconfig = {
     'CLANG_CXX_LANGUAGE_STANDARD' => 'c++17',

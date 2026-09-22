@@ -65,3 +65,8 @@ app.*.map.json
 # Build artifacts inside vendored third-party packages
 third_party/**/.cxx/
 third_party/**/build/
+
+# Stockfish neural-net weight files — stockfish.podspec and CMakeLists.txt both download
+# these automatically at build time (curl / file(DOWNLOAD)) if missing. The large one is
+# ~104MB, over GitHub's 100MB push limit, so it must never be committed.
+third_party/**/*.nnue
