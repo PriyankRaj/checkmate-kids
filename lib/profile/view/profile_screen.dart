@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:in_app_review/in_app_review.dart';
 
 import '../../challenges/data/challenge_repository.dart';
 import '../../core/widgets/app_scaffold.dart';
@@ -84,6 +88,13 @@ class ProfileScreen extends ConsumerWidget {
           const SizedBox(height: 20),
           Center(
             child: TextButton.icon(
+              onPressed: () => _rateWithParentalGate(context),
+              icon: const Icon(Icons.star_outline),
+              label: const Text('Grown-ups: rate Checkmate Kids'),
+            ),
+          ),
+          Center(
+            child: TextButton.icon(
               onPressed: () => _showThirdPartyNotices(context),
               icon: const Icon(Icons.description_outlined),
               label: const Text('Third-party notices'),
@@ -92,6 +103,21 @@ class ProfileScreen extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  /// The audience is 6–12, so the rating link never fires on its own and
+  /// sits behind a simple grown-up check before it leaves the app.
+  Future<void> _rateWithParentalGate(BuildContext context) async {
+    final passed = await showDialog<bool>(
+      context: context,
+      builder: (context) => const _ParentalGateDialog(),
+    );
+    if (passed != true) return;
+    try {
+      await InAppReview.instance.openStoreListing(appStoreId: '6812977406');
+    } catch (e) {
+      debugPrint('openStoreListing failed: $e');
+    }
   }
 
   void _showThirdPartyNotices(BuildContext context) {
@@ -175,6 +201,62 @@ class _StatCard extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _ParentalGateDialog extends StatefulWidget {
+  const _ParentalGateDialog();
+
+  @override
+  State<_ParentalGateDialog> createState() => _ParentalGateDialogState();
+}
+
+class _ParentalGateDialogState extends State<_ParentalGateDialog> {
+  final _rng = Random();
+  late final int _a = 6 + _rng.nextInt(7);
+  late final int _b = 6 + _rng.nextInt(7);
+  final _controller = TextEditingController();
+  bool _wrong = false;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _check() {
+    if (int.tryParse(_controller.text.trim()) == _a * _b) {
+      Navigator.of(context).pop(true);
+    } else {
+      setState(() => _wrong = true);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Grown-ups only'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('To continue, what is $_a × $_b?'),
+          const SizedBox(height: 12),
+          TextField(
+            controller: _controller,
+            autofocus: true,
+            keyboardType: TextInputType.number,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            onSubmitted: (_) => _check(),
+            decoration: InputDecoration(errorText: _wrong ? 'Not quite — try again' : null),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Cancel')),
+        FilledButton(onPressed: _check, child: const Text('Continue')),
+      ],
     );
   }
 }
